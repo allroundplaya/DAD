@@ -1,6 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class LedgerList {
+public class LedgerList implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Ledger> list;
 	
 	public LedgerList() {

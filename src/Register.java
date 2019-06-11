@@ -10,7 +10,16 @@ public class Register {
 	private CashPayment cashPayment;
 	
 	
-	// menu list는 db로부터 불러옴.
+	public Register() {
+		this.managerList = new ManagerList();
+		this.menuList = new MenuList();
+		this.ledgerList = new LedgerList();
+		this.ledger = null;
+		this.currentSale = null;
+		this.foodCourt = new FoodCourt();
+		this.cashPayment = null;
+	}
+	
 	public Register(ManagerList managerList, MenuList menuList, LedgerList ledgerList) {
 		this.managerList = managerList;
 		this.menuList = menuList;
@@ -56,14 +65,18 @@ public class Register {
 	 * Use Case 2: 시스템 로그인
 	 */
 	
-	public void systemLogin(String ID, String PW) {
+	public boolean systemLogin(String ID, String PW) {
 		if(!this.foodCourt.getIsOpened()) {
 			boolean isAuthenticated = this.managerList.authenticate(ID, PW);
 			if(isAuthenticated) {
 				this.foodCourt.setIsOpened(true);
 				this.ledger = new Ledger();
+				return true;
 			}
+			else return false;
 		}
+		
+		return false;
 	}
 	
 	//Operation2 : toUserMode()
@@ -109,6 +122,62 @@ public class Register {
 				Menu newMenu = new Menu(itemID,info,price);//신메뉴 생성
 				this.menuList.addMenu(newMenu);
 		}//신메뉴 만들기
+	}
+
+	public ManagerList getManagerList() {
+		return managerList;
+	}
+
+	public void setManagerList(ManagerList managerList) {
+		this.managerList = managerList;
+	}
+
+	public MenuList getMenuList() {
+		return menuList;
+	}
+
+	public void setMenuList(MenuList menuList) {
+		this.menuList = menuList;
+	}
+
+	public LedgerList getLedgerList() {
+		return ledgerList;
+	}
+
+	public void setLedgerList(LedgerList ledgerList) {
+		this.ledgerList = ledgerList;
+	}
+
+	public Ledger getLedger() {
+		return ledger;
+	}
+
+	public void setLedger(Ledger ledger) {
+		this.ledger = ledger;
+	}
+
+	public Sale getCurrentSale() {
+		return currentSale;
+	}
+
+	public void setCurrentSale(Sale currentSale) {
+		this.currentSale = currentSale;
+	}
+
+	public FoodCourt getFoodCourt() {
+		return foodCourt;
+	}
+
+	public void setFoodCourt(FoodCourt foodCourt) {
+		this.foodCourt = foodCourt;
+	}
+
+	public CashPayment getCashPayment() {
+		return cashPayment;
+	}
+
+	public void setCashPayment(CashPayment cashPayment) {
+		this.cashPayment = cashPayment;
 	}
 	
 	

@@ -2,10 +2,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MenuList implements Serializable {
+	private static final long serialVersionUID = 3L;
 	private ArrayList<Menu> list;
 	
 	public MenuList() {
-		this.list = null;
+		this.list = new ArrayList<Menu>();
+		list.add(new Menu("0001", "¶ó¸é", 2000));
+		list.add(new Menu("0002", "±è¹ä", 1300));
+		list.add(new Menu("0003", "µ·°¡½º", 3500));
+		list.add(new Menu("0004", "µÈÀåÂî°³", 4000));
 	}
 	
 	public MenuList(ArrayList<Menu> list) {
