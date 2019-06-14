@@ -34,6 +34,7 @@ public class Sale {
 		SalesLineItem sli = new SalesLineItem(menu, quantity);
 		int subTotal = sli.calSubTotal();
 		this.updateTotal(subTotal);
+		this.items.add(sli);
 	}
 	
 	

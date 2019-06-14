@@ -24,7 +24,7 @@ public class MenuList implements Serializable {
 	public Menu getMenuById(String itemID) {
 		Menu menu = null;
 		for(Menu m : this.list) {
-			if (m.getItemID() == itemID) {
+			if (m.getItemID().equals(itemID)) {
 				menu = m;
 				break;
 			}

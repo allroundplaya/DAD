@@ -27,7 +27,7 @@ public class ManagerList implements Serializable{
 	   public Manager getManagerById(String itemID) {
 	      Manager Manager = null;
 	      for(Manager m : list) {
-	         if (m.getUserID() == itemID) {
+	         if (m.getUserID().equals(itemID)) {
 	            Manager = m;
 	            break;
 	         }
@@ -40,7 +40,7 @@ public class ManagerList implements Serializable{
 		   m = this.getManagerById(ID);
 		   if (m == null) return false;
 		   else {
-			   if(m.getPW() != PW) return false;
+			   if(!m.getPW().equals(PW)) return false;
 			   else return true;
 		   }
 		   

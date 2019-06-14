@@ -1,8 +1,10 @@
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Ledger {
+public class Ledger implements Serializable{
+	private static final long serialVersionUID = 5L;
 	private String date;
 	private int balance;
 	private ArrayList<Sale> list;

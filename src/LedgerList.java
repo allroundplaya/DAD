@@ -6,7 +6,7 @@ public class LedgerList implements Serializable {
 	private ArrayList<Ledger> list;
 	
 	public LedgerList() {
-		this.list = null;
+		this.list = new ArrayList<Ledger>();
 	}
 	
 	public LedgerList(ArrayList<Ledger> list) {

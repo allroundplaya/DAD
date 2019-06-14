@@ -1,6 +1,7 @@
+import java.io.Serializable;
 
-public class Menu {
-	
+public class Menu implements Serializable{
+	private static final long serialVersionUID = 4L;
 	private String itemID;
 	private String name;
 	private int price;
